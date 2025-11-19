@@ -1,0 +1,36 @@
+#include<iostream>
+#include<vector>
+#include<list>
+#include<unordered_map>
+using namespace std;
+
+class Graphll{
+public:
+    unordered_map<int , list<int>> mp;
+
+    void insert(int src , int dest , int dire)
+    {
+        if(dire == 1)
+        {
+            mp[src].push_back(dest);
+        }
+        else{
+            mp[src].push_back(dest);
+            mp[dest].push_back(src);
+        }
+    }
+
+    void print()
+    {
+        cout << "adjacency list : ";
+        for(auto it : mp)
+        {
+            cout << it.first << " : ";
+            for(auto k : it.second)
+            {
+                cout << k << " ";
+            }
+            cout << endl;
+        }
+    }
+};
