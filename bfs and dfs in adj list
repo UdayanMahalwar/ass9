@@ -3,6 +3,8 @@ GraphLL{
     {
         while(!q.empty())
         {
+            int front = q.front();
+            q.pop();
             for(auto it : mp[front])
             {
                 if(!visited[it])
