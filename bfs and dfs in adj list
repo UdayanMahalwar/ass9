@@ -1,0 +1,35 @@
+GraphLL{
+    void bfs(int val)
+    {
+        while(!q.empty())
+        {
+            for(auto it : mp[front])
+            {
+                if(!visited[it])
+                {
+                    q.push(it);
+                    visited[it] = true;
+                }
+            }
+        }
+    }
+    void dfshelper(int val , unordered_map<int,bool>& visited)
+    {
+        cout << val << " ";
+        visited[val] = true;
+        for(auto it : mp[val])
+        {
+            if(!visited[it])
+            {
+                dfshelper(it, visited);
+            }
+        }
+    }
+    void dfs(int val)
+    {
+        unordered_map<int,bool> visited;
+        visited[val] = true;
+        dfshelper(val, visited);
+    }
+
+}
