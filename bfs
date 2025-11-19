@@ -1,0 +1,23 @@
+void bfs(int val)
+{
+    queue<int> q;
+    q.push(val);
+    unordered_map<int , bool> visited;
+    visited[val] = true;
+
+    while(!q.empty())
+    {
+        int front = q.front();
+        q.pop();
+        cout << front << endl;
+
+        for(auto it : mp[front])
+        {
+            if(!visited[it])
+            {
+                q.push(it);
+                visited[it] = true;
+            }
+        }
+    }
+}
